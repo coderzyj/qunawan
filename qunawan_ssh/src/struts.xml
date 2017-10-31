@@ -1,0 +1,46 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE struts PUBLIC
+	"-//Apache Software Foundation//DTD Struts Configuration 2.3//EN"
+	"http://struts.apache.org/dtds/struts-2.3.dtd">
+
+<struts>
+	<constant name="struts.multipart.saveDir" value="/tmp"/>
+	<constant name="struts.enable.DynamicMethodInvocation" value="true" />
+    <package name="user" namespace="/" extends="struts-default">
+		<action name="user" class="useraction" >
+			<result name="loginsuccess" type="chain">index</result>
+			<result name="loginfailed">/login.jsp</result>
+			<result name="regissuccess">/login.jsp</result>
+			<result name="regisfail">/login.jsp</result>
+			<result name="logoutsuccess">/login.jsp</result>
+			<result name="showinfosuccess">/WEB-INF/pages/personal/personal_information.jsp</result>
+			<result name="jumpsuccess">/WEB-INF/pages/personal/personal_passwordChange.jsp</result>
+			<result name="updatepwdsuccess">/login.jsp</result>
+			<result name="updatepwdfail">/WEB-INF/pages/personal/personal_passwordChange.jsp</result>
+			<result name="updatefail">/WEB-INF/pages/personal/personal_information.jsp</result>
+			<result name="updatesuccess">/WEB-INF/pages/personal/personal_information.jsp</result>
+		</action>
+		<action name="index" class="indexaction" method="showAll">
+			<result name="success">/WEB-INF/pages/index.jsp</result>
+		
+		</action>
+		<action name="tripdetail" class="tripdetailaction">
+			<result name="showtripsuccess">/WEB-INF/pages/trip_detail.jsp</result>
+		</action>
+		<action name="order" class="orderaction">
+			<result name="showordersuccess">/WEB-INF/pages/personal/personal_myOrder.jsp</result>
+			<result name="showdetailsuccess">/WEB-INF/pages/order_detail.jsp</result>
+		</action>
+		<action name="contact" class="contactaction">
+			<result name="showcontactsuccess">/WEB-INF/pages/personal/personal_myContact.jsp</result>
+			<result name="addcontactfail">/WEB-INF/pages/personal/personal_myContact.jsp</result>
+			<result name="addcontactsuccess">/WEB-INF/pages/personal/personal_myContact.jsp</result>
+		</action>
+		<action name="crop" class="cropaction">
+			<result name="updateheadpicsuccess">/WEB-INF/pages/personal/personal_information.jsp</result>
+		</action>
+		<action name="search" class="searchaction">
+			<result name="searchsuccess">/WEB-INF/pages/search.jsp</result>
+		</action>
+    </package>
+</struts>
